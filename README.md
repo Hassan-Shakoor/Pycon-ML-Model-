@@ -182,22 +182,22 @@ it will show your app running
   sudo nano /etc/systemd/system/myapp.service
   ```
 - Add the following configuration, adjusting paths and names as necessary:
-  ```
-    [Unit]
-    Description=Gunicorn instance to serve myapp
-    After=network.target
+```
+[Unit]
+Description=Gunicorn instance to serve myapp
+After=network.target
 
-    [Service]
-    User=root
-    Group=root
-    WorkingDirectory=/root/Pycon-ML-Model-
-    Environment="PATH=/root/Pycon-ML-Model-/venv/bin"
-    ExecStart=/root/Pycon-ML-Model-/venv/bin/gunicorn --workers 3 --bind unix:myapp.sock -m 007 app:app
+[Service]
+User=root
+Group=root
+WorkingDirectory=/root/Pycon-ML-Model-
+Environment="PATH=/root/Pycon-ML-Model-/venv/bin"
+ExecStart=/root/Pycon-ML-Model-/venv/bin/gunicorn --workers 3 --bind unix:myapp.sock -m 007 app:app
 
-    [Install]
-    WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
 
-  ```
+```
 - Enable and start the Gunicorn service:
   ```
   sudo systemctl enable myapp
