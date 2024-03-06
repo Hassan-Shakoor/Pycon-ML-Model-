@@ -121,22 +121,9 @@ sudo -i
 
   <img src='/img/pic5.png'></img>
 
-### Step 6: Install and Configure Gunicorn
 
--  While in your virtual environment and app directory, run:
-  ```
-  gunicorn --workers 3 --bind 0.0.0.0:8000 app:app
-  ```
-- Replace `app:app` with your Python file name and the Flask app variable name, respectively.
 
-Now go to the web browser and type your public ip address followed by the port number
-like this 
-```
-<IP>:8000
-```
-it will show your app running
-
-### Step 7: Install and Configure Nginx
+### Step 6: Install and Configure Nginx
 
 - Install Nginx:
   ```
@@ -175,7 +162,7 @@ it will show your app running
   <img src='/img/pic7.png'></img>
 
 
-### Step 8: Configure Gunicorn to Start on Boot with systemd
+### Step 7: Configure Gunicorn to Start on Boot with systemd
 
 - Create a Gunicorn systemd service file:
   ```
@@ -209,7 +196,7 @@ WantedBy=multi-user.target
   ```
   <img src='/img/pic6.png'></img>
 
-### Step 9: Change Nginx User
+### Step 8: Change Nginx User
 
 Change `www-data` to `root` using
 ```
